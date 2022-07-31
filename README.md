@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# React e-Shop Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Outline
 
-## Available Scripts
+This project is designed to reinforce your React learnings and make sure that you are comfortable with most aspect of the framework.
+With this project you will practice how to:
 
-In the project directory, you can run:
+-   Fetch Data within a React App
+-   Use react-router-dom
+-   Use Firebase/Firestore
 
-### `npm start`
+## MVP
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+At a minimum your e-shop website should have two pages:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-   Home Page
+    -   This will contain:
+        -   A Grid of products
+        -   Carousel of featured products
+        -   Product Page (with id parameter) Similar to a product page on another site, allows you to add to cart and select product variants
+-   All products should be stored in Firestore:
+    -   You should store the following information:
+        -   quantity
+        -   variants (could be colors, sizes, etc)
+        -   price per unit
+        -   name
+        -   image url
+        -   favourited or not (boolean)
+            All data should be stored in Firestore and fetched by the frontend, there should be NO static product data in the react application
 
-### `npm test`
+### Bonus
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Using Firestore and react create, a cart system. Create a cart page in your react app Add logic to prevent users from adding items to cart that are no longer in stock. You will have to check the current cart and the product quantity Cart page should have the following:
 
-### `npm run build`
+-   List of products in cart
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    -   Ability to change quantity of products in cart
+    -   Ability to remove items from cart
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   TIPS :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Make sure your site is scoped to one category of products
 
-### `npm run eject`
+## Useful links
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   [React-router-dom](https://reactrouter.com/docs/en/v6/getting-started/overview)
+-   [Dummy JSON](https://dummyjson.com/)
+-   [Fake Store](https://fakestoreapi.com/)
