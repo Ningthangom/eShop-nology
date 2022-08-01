@@ -2,7 +2,10 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import Search from '../Search/Search'
+import logo from './ONE_LOGO.svg.png'
+import Search from '../Search/Search';
+
+import styles from './Header2.module.scss'
 
 
 const Header2 = () => {
@@ -12,23 +15,35 @@ const Header2 = () => {
         <Navbar expand="lg" style={{ backgroundColor: "#184D47" }}>
             <Container>
                 <Navbar.Brand href="/">
-                    {" "}
+                    
                     <img
-                        src="./ONE_LOGO.svg.png"
+                        src={logo}
                         width="70px"
                         height="60px"
-                    />{" "}
-                    Stop{" "}
+
+                        alt=""
+                    />
+                    Stop
                 </Navbar.Brand>
-                <div style={{ marginLeft: "15vw", marginRight: "30vw" }}>
-                    {" "}
+                <div style={{ marginLeft: "15vw", marginRight: "20vw" }}>
+                   
                     <Search />
                 </div>
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse className="justify-content-end">
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Cart</Nav.Link>
+                        <Nav.Link href="#home" className={styles.cart}>
+                            Cart
+                        </Nav.Link>
+                      {/*   <Nav.Link href="#home" className={styles.cart}>
+                            {" "}
+                            Wish List{" "}
+                        </Nav.Link>
+                        <Nav.Link href="#home" className={styles.cart}>
+                            {" "}
+                            Log in{" "}
+                        </Nav.Link> */}
                         <NavDropdown title="DashBoard" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/products/new">
                                 Add New Product

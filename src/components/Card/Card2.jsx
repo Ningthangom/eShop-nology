@@ -17,6 +17,7 @@ const Card2 = ({product}) => {
 
     useEffect(() => {
         console.log(isAdded);
+        
     }, [isAdded]);
 
     
@@ -25,7 +26,7 @@ const Card2 = ({product}) => {
           <div className={styles.container}>
               <div
                   className={styles.top}
-                  style={{ backgroundImage: `url(${product.images[0]})` }}
+                  style={{ backgroundImage: `url(${product.images})` }}
               ></div>
               <div className={styles.bottom}>
                   {isAdded ? (
@@ -103,10 +104,7 @@ const Card2 = ({product}) => {
                       </tr>
                       <tr>
                           <td>
-                              I should have added that to my question. I do have
-                              a width and height set (100% / 400px
-                              respectively). The issue arising is due to how
-                              react handles static images I believe{" "}
+                             {product.description}
                           </td>
                       </tr>
                   </table>

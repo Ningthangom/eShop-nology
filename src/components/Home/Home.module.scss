@@ -1,3 +1,24 @@
+.homeContainer{
+
+
+}
+
+.carouselContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: red;
+    height: 40vh;
+
+    &__carousel {
+            width: 80%;
+            margin-top: 5vh;
+            background-color: green;
+            padding: 3vw;
+        }
+}
+
 .home {
     display: flex;
     flex-direction: column;

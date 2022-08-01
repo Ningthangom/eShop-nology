@@ -1,7 +1,7 @@
 .Form {
     width: 80vw;
     height: 80vh;
-    background-color: grey;
+   /*  background-color: grey; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +9,7 @@
 
     &__container{
         width: 80%;
-        height: 80%;
+        height: 90%;
         background-color: #00917C;
        padding: 2% 20%;
         border: 3px solid orange;
@@ -88,4 +88,14 @@ $gray: #9b9b9b;
     &:invalid {
         box-shadow: none;
     }
+}
+
+
+.submitBtn {
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 15%;
+    background-color:#910015;
+    padding: 5px;
+    border-radius: 15px;
 }
