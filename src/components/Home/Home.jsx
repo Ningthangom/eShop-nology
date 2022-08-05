@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import styles from './Home.module.scss';
+import { NavLink } from 'react-router-dom';
+import CarouselFade from './CaroselFade'
 import Card2 from '../Card/Card2';
 import ImageGallery from "react-image-gallery";
 
@@ -35,31 +37,18 @@ const Home = () => {
 
   return (
       <>
-          <div className={styles.HomeContainer}>
-              <div className={styles.carouselContainer}>
-                  <div className={styles.carouselContainer__carousel}>
-                      <Carousel
-                          slidesToShow={3}
-                          cellSpacing={20}
-                          slideWidth={0.75}
-                          cellAlign="center"
-                          width="80%"
-                      >
-                          {productImages &&
-                              productImages.map((image) => (
-                                  <img src={image} width="80%" />
-                              ))}
-                      </Carousel>
-                  </div>
-              </div>
+          <div style={{ marginTop: "10px" }}>
+              {" "}
+              <CarouselFade products={products} />
+          </div>
 
+          <div className={styles.HomeContainer}>
               <div className={styles.home}>
                   <div className={styles.home__cardGrid}>
-                      {/*  {products.map((product) => (
-                  <Card product={product} />
-              ))} */}
-                      {products.map((product, idx) => (
-                          <Card2 product={product} key={product.id} />
+                      {products.map((product) => (
+                          <NavLink to={`/products/${product.id.toString()}`}>
+                              <Card2 product={product} key={product.id} />
+                          </NavLink>
                       ))}
                   </div>
               </div>

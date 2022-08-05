@@ -11,7 +11,8 @@ const defaultProduct = {
     brand: "",
     rating: [0],
     description: "",
-    images: []
+    images: [],
+    favorite: false
 };
 
 const Form = ({onSubmit}) => {

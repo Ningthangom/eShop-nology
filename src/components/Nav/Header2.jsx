@@ -15,18 +15,10 @@ const Header2 = () => {
         <Navbar expand="lg" style={{ backgroundColor: "#184D47" }}>
             <Container>
                 <Navbar.Brand href="/">
-                    
-                    <img
-                        src={logo}
-                        width="70px"
-                        height="60px"
-
-                        alt=""
-                    />
+                    <img src={logo} width="70px" height="60px" alt="" />
                     Stop
                 </Navbar.Brand>
                 <div style={{ marginLeft: "15vw", marginRight: "20vw" }}>
-                   
                     <Search />
                 </div>
 
@@ -36,7 +28,10 @@ const Header2 = () => {
                         <Nav.Link href="#home" className={styles.cart}>
                             Cart
                         </Nav.Link>
-                      {/*   <Nav.Link href="#home" className={styles.cart}>
+                        <Nav.Link href="/favourites" className={styles.cart}>
+                            favourites
+                        </Nav.Link>
+                        {/*   <Nav.Link href="#home" className={styles.cart}>
                             {" "}
                             Wish List{" "}
                         </Nav.Link>

@@ -5,7 +5,6 @@ import ClearIcon from "@mui/icons-material/Clear";
 import { AverageRating  } from './Rating';
 
 
-
 const Card2 = ({product}) => {
     const [isAdded, setIsAdded] = useState(false);
 
@@ -27,7 +26,9 @@ const Card2 = ({product}) => {
               <div
                   className={styles.top}
                   style={{ backgroundImage: `url(${product.images})` }}
-              ></div>
+              >
+                  {" "}
+              </div>
               <div className={styles.bottom}>
                   {isAdded ? (
                       <div className={styles.right}>
@@ -103,9 +104,13 @@ const Card2 = ({product}) => {
                           <th>Description</th>
                       </tr>
                       <tr>
-                          <td>
-                             {product.description}
-                          </td>
+                          <td>{product.description}</td>
+                      </tr>
+                      <tr>
+                          <th>
+                              {" "}
+                              <button>Add To Favourite </button>
+                          </th>
                       </tr>
                   </table>
               </div>

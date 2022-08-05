@@ -1,0 +1,187 @@
+
+.ProductDetail{
+
+    background-color: orange;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 2%;
+    display: flex;
+    justify-content: center;
+   
+
+    &__container{
+
+        background-color:red;
+        width: 80%;
+        height: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+
+    &__image{
+        background-color: green;
+        height: 60%;
+        width: 40%;
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+}
+
+.imageContainer{
+    width: 30vw;
+    height: 40vh;
+    background-color: red;
+    margin-top: 5%;
+    margin-left: 5%;
+    padding: 15px;
+}
+
+
+.DetailContainer{
+
+    width: 60vw;
+    height: 40vh;
+    background-color: green;
+    margin-top: 5%;
+    padding: 15px;
+ 
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+.imageContainer {
+        width: 80vw;
+        height: 40vh;
+        background-color: red;
+        margin-top: 5%;
+        margin-left: 7%;
+      
+    }
+
+        .DetailContainer {
+            width: 80vw;
+            height: 40vh;
+            background-color: green;
+           
+            margin-left: 7%;
+            
+        }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .imageContainer {
+            width: 80vw;
+            height: 40vh;
+            background-color: red;
+            margin: 10% 10% 0 ;
+    
+        }
+    
+        .DetailContainer {
+    
+            width: 80vw;
+            height: 40vh;
+            background-color: green;
+            margin-left: 7%;
+            margin: 5% 10% 0;
+    
+        }
+    
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .imageContainer {
+            width: 80vw;
+            height: 40vh;
+            background-color: red;
+            margin: 10% 10% 0;
+    
+        }
+    
+        .DetailContainer {
+    
+            width: 80vw;
+            height: 40vh;
+            background-color: green;
+            margin-left: 7%;
+            margin: 5% 10% 0;
+    
+        }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .imageContainer {
+            width: 80vw;
+            height: 40vh;
+            background-color: red;
+            margin: 10% 10% 0;
+    
+        }
+    
+        .DetailContainer {
+    
+            width: 80vw;
+            height: 40vh;
+            background-color: green;
+            margin-left: 7%;
+            margin: 5% 10% 0;
+    
+        }
+
+
+}
+
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+.imageContainer {
+        width: 380px;
+        height: 45vh;
+        background-color: red;
+        margin-left: 17%;
+        margin-top: 25%;
+
+    }
+
+    .DetailContainer {
+
+        width: 50vw;
+        height: 45vh;
+        background-color: green;
+        
+        margin-left: 7%;
+        margin-top: 12%;
+        margin-right: 4%;
+
+    }
+}
+
+
+@media only screen and (min-width: 1606px) {
+    .imageContainer {
+        width: 500px;
+        height: 45vh;
+        background-color: red;
+        margin-left: 17%;
+        margin-top: 25%;
+
+    }
+
+    .DetailContainer {
+
+        width: 50vw;
+        height: 45vh;
+        background-color: green;
+
+        margin-left: 7%;
+        margin-top: 12%;
+        margin-right: 4%;
+
+    }
+}

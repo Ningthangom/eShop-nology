@@ -1,3 +1,6 @@
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+
+
 .homeContainer{
 
 
@@ -9,7 +12,7 @@
     align-items: center;
     text-align: center;
     background-color: red;
-    height: 40vh;
+    height: 60vh;
 
     &__carousel {
             width: 80%;

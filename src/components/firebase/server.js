@@ -54,4 +54,13 @@ export const getProducts = async () => {
 }
 
 
+// get one product;
+export const getSingleProduct = async (id) => {
+
+    var docRef = firestore.collection("products").doc(id);
+  /*   const data = await docRef.get(); */
+    return docRef;
+};
+
+
 
