@@ -5,9 +5,6 @@ import styles from "./Search.module.scss";
 
 const Search = ({onSubmit}) => {
     const [textInput, setTextInput] = useState("");
-
-
-  
     const handleSearch  = () => {
 
     }

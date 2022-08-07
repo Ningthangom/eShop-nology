@@ -12,7 +12,9 @@ const defaultProduct = {
     rating: [0],
     description: "",
     images: [],
-    favorite: false
+    favorite: false,
+    colors: ["red", "green", "white", "yellow", "no color"],
+    color: "",
 };
 
 const Form = ({onSubmit}) => {
@@ -147,6 +149,23 @@ const Form = ({onSubmit}) => {
                       </label>
                   </div>
                   <div className={`${styles.form__group} ${styles.field}`}>
+                      <label>Colors</label>
+                      <select
+                          name="color"
+                          id="color"
+                          value={product.color}
+                          className="form-control"
+                          onChange={HandleTextChange}
+                      >
+                          <option>Please select one</option>
+                          {product.colors.map((c) => (
+                              <option key={c} value={c}>
+                                  {c}
+                              </option>
+                          ))}
+                      </select>
+                  </div>
+                  <div className={`${styles.form__group} ${styles.field}`}>
                       <input
                           type="input"
                           className={styles.form__field}
@@ -161,7 +180,10 @@ const Form = ({onSubmit}) => {
                           Description
                       </label>
                   </div>
-                  <button className={styles.submitBtn} onClick={handleSubmit}> Submit </button>
+                  <button className={styles.submitBtn} onClick={handleSubmit}>
+                      {" "}
+                      Submit{" "}
+                  </button>
               </div>
           </div>
       </>

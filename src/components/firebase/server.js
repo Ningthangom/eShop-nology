@@ -34,7 +34,7 @@ export const seedProducts = async () => {
 
 export const getProducts = async () => {
 
-    console.log("getProduct is called in server")
+   
 
     const collectionRef = firestore.collection("products");
 
@@ -47,7 +47,6 @@ export const getProducts = async () => {
         return {id: doc.id, ...doc.data()}
     })
 
-    console.log("data: ", data)
     return data;
 
 
@@ -58,8 +57,40 @@ export const getProducts = async () => {
 export const getSingleProduct = async (id) => {
 
     var docRef = firestore.collection("products").doc(id);
-  /*   const data = await docRef.get(); */
+       const data = await docRef.get();
+
+     /* data.get()
+         .then((doc) => {
+             if (doc.exists) {
+                 console.log("Document data:", doc.data());
+                 let item = doc.data();
+                 console.log("this si item", item);
+
+                 return item;
+             } else {
+                 // doc.data() will be undefined in this case
+                 console.log("No such document!");
+             }
+         })
+         .catch((error) => {
+             console.log("Error getting document:", error);
+         }); */
     return docRef;
+};
+
+
+export const getSingleProduct2 = async (id) => {
+    try {
+        const collectionRef = firestore.collection("products");
+        const document = collectionRef.doc(id);
+        const documentData = await document.get();
+        return {
+            id: documentData.id,
+            ...documentData.data(),
+        };
+    } catch (error) {
+        console.error("Something wrong happened");
+    }
 };
 
 

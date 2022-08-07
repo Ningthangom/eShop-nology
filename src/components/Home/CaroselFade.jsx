@@ -4,8 +4,8 @@ const CarouselFade = ({products}) => {
     return (
         <Carousel fade>
             {products &&
-                products.map((product) => (
-                    <Carousel.Item>
+                products.map((product, index) => (
+                    <Carousel.Item key={index}>
                         <img
                             className="d-block w-10 my-auto"
                             src={product.images}

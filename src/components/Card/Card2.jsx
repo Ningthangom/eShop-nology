@@ -1,34 +1,38 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import styles from './Card2.module.scss';
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import ClearIcon from "@mui/icons-material/Clear";
 import { AverageRating  } from './Rating';
+import {NavLink} from 'react-router-dom';
+import {SearchContext} from '../Context/Context'
 
 
-const Card2 = ({product}) => {
+
+const Card2 = ({product,}) => {
     const [isAdded, setIsAdded] = useState(false);
+    const { cartItems, setCartItems } = useContext(SearchContext);
+    
 
 
     const itemAddedToCart = () => {
+        setCartItems([product, ...cartItems]);
+       
         setIsAdded(true); 
         
     }
-
-    useEffect(() => {
-        console.log(isAdded);
-        
-    }, [isAdded]);
-
     
   return (
       <div className={styles.wrapper}>
           <div className={styles.container}>
-              <div
-                  className={styles.top}
-                  style={{ backgroundImage: `url(${product.images})` }}
-              >
-                  {" "}
-              </div>
+              <NavLink to={`/products/${product.id.toString()}`}>
+                  <div
+                      className={styles.top}
+                      style={{ backgroundImage: `url(${product.images})` }}
+                  >
+                      {" "}
+                  </div>
+              </NavLink>
+
               <div className={styles.bottom}>
                   {isAdded ? (
                       <div className={styles.right}>
@@ -109,7 +113,7 @@ const Card2 = ({product}) => {
                       <tr>
                           <th>
                               {" "}
-                              <button>Add To Favourite </button>
+                              <button className="btn btn-primary">Add To Favourite </button>
                           </th>
                       </tr>
                   </table>

@@ -6,64 +6,69 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useParams } from 'react-router-dom';
 
-import {getSingleProduct} from '../firebase/server';
+import {getSingleProduct2} from '../firebase/server';
+import {AverageRating} from "../Card/Rating";
 
 
 const ProductDetail = () => {
+    const { productId } = useParams();
+    const [product, setProduct] = useState({});
 
-  const {productId} = useParams();
-  const id = productId;
-  const [product, setProduct] = useState();
+    const getData = async (id) => {
+        const product = await getSingleProduct2(id);
+        setProduct(product);
+    };
 
-     const getData = async () => {
-         console.log("getData is called");
-      let item;
-         const data = await getSingleProduct(id);
-         console.log(data)
-          data.get()
-              .then((doc) => {
-                  if (doc.exists) {
-                      console.log("Document data:", doc.data());
-                       item = doc.data();
-                      console.log("this si item", item);
-                    
-                      return item;
-                  } else {
-                      // doc.data() will be undefined in this case
-                      console.log("No such document!");
-                  }
-              })
-              .catch((error) => {
-                  console.log("Error getting document:", error);
-              });
+    useEffect(() => {
+        getData(productId);
+    }, []);
 
-          setProduct(item);
-         
-     };
+    console.log("ProductDetail: ", product);
+    return (
+        <>
+            <Container fluid>
+                <Row>
+                    <Col xl={4}>
+                        <div className={styles.imageContainer}>
+                            {product && (
+                                <img
+                                    src={product.images}
+                                    alt=""
+                                    id={styles.image}
+                                />
+                            )}
+                        </div>
+                    </Col>
+                    <Col xl={8}>
+                        <div className={styles.DetailContainer}>
+                            <h2> {product.name}</h2>
+                            <p> ${product.price}</p>
+                            <p> {product.description}</p>
 
-     useEffect(() => {
-         getData();
-     }, []);
+                            <AverageRating product={product.rating} />
+                            <p> {product.favorite ? "true" : "false"}</p>
+                            <p> Available in : { product.color ? product.color.charAt(0).toUpperCase() + product.color.slice(1) : ""}</p>
+                            <div>
+                                <button className="btn btn-danger">
+                                    {" "}
+                                    add to wish list
+                                </button>
+                                <button className="btn btn-primary m-4">
+                                    {" "}
+                                    add to cart{" "}
+                                </button>
+                                <button className="btn btn-warning m-4">
+                                    {" "}
+                                   Add to favorite list
+                                </button>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+        </>
+    );
+};
 
-  console.log("ProductDetail: ", product);
-  return (
-      <>
-          <Container fluid>
-              <Row>
-                  <Col xl={4}>
-                    {/* <div className={styles.imageContainer}>
-                      {product.images ? <image src={product.images} alt=""/>: "apple"}
-                    </div> */}
-                  </Col>
-                  <Col xl={8}>
-                    <div className={styles.DetailContainer}>
-                        This will contain the details of a product
-                    </div>
-                  </Col>
-              </Row>
-          </Container>
-      </>
-  );
-}
+export default ProductDetail;
 
-export default ProductDetail
