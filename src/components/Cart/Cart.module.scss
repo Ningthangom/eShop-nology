@@ -1,0 +1,17 @@
+
+
+.cartContainer{
+    width: 60%;
+}
+
+.Quantity {
+    display: flex;
+    margin: 10px;
+    &__header{
+        margin: 4px;
+        border: 2px solid red;
+        padding: 4px;
+        width: 100px;
+        text-align: center;
+    }
+}

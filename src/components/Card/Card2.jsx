@@ -6,6 +6,8 @@ import { AverageRating  } from './Rating';
 import {NavLink} from 'react-router-dom';
 import {SearchContext} from '../Context/Context'
 
+import {createCart, getCart} from '../firebase/server'
+
 
 
 const Card2 = ({product,}) => {
@@ -13,13 +15,23 @@ const Card2 = ({product,}) => {
     const { cartItems, setCartItems } = useContext(SearchContext);
     
 
+ const addToCart = async (record) => {
+     const cart = await getCart();
+     const found = cart.some( item => item.id === record.id);
+     if(found) alert("item already exists inside the cart");
+     if(!found)  await createCart(record);
+ };
+
 
     const itemAddedToCart = () => {
         setCartItems([product, ...cartItems]);
-       
+        addToCart(product);
         setIsAdded(true); 
         
     }
+
+   
+
     
   return (
       <div className={styles.wrapper}>

@@ -49,10 +49,6 @@ const Form = ({onSubmit}) => {
 
 
 
-    useEffect(() => {
-        console.log(product);
-},[product])
-
   return (
       <>
           <div className={styles.Form}>

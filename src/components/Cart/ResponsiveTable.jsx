@@ -1,35 +1,89 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { isCompositeComponent } from "react-dom/test-utils";
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
-const ResponsiveTable = ({ item, setCartItems , items, indx}) => {
-    console.log("In Responsive table", item);
+import Quantity from "./Quantity";
+import {deleteItem} from '../firebase/server'
 
-    const handleDelete = (e) => {
-        const valueFrombtn = e.target.getAttribute("name");
-        console.log("this is value: ", valueFrombtn);
-        const filtered = items.filter((item, index) => index !== parseInt(valueFrombtn)
-        );
+const ResponsiveTable = ({ item, onDelete , indx, onChange }) => {
+    // console.log("In Responsive table", item);
 
-     setCartItems(filtered);
+     const [qty, setQty] = useState(1);
+     const [costPrice, setCostPrice] = useState(item.price * 1);
+
+    const handleDelete = () => {
+        // console.log("this is item id inside table ", item.id)
+        onDelete(item.id1);
     }
 
+    const addQuantity = () => {
+        console.log("Add Quantity is clicked")
+        setQty(qty + 1);
+        setCostPrice(qty * item.price)
+    }
+
+    const decreaseQuantity = () => {
+        setQty(qty - 1);
+        setCostPrice(qty * item.price);
+        
+    };
+
+    useEffect(() => {
+        onChange({
+            ...item,
+            quantity: qty,
+        })
+    },[qty])
+
+ 
     return (
         <Table key={item.id}>
             <Thead>
                 <Tr>
+                    <Th> Image </Th>
                     <Th> Name </Th>
-                    <Th> price</Th>
+                    <Th> unit price</Th>
                     <Th> quantity</Th>
+                    <Th> Price </Th>
                     <Th> Remove </Th>
                 </Tr>
             </Thead>
+
             <Tbody>
                 <Tr>
-                    <Td>{item.name}</Td>
+                    <Td>
+                        {" "}
+                        <img
+                            src={item.images}
+                            alt=""
+                            width="200px"
+                            height="200px"
+                        />
+                    </Td>
+                    <Td>
+                        <h4> {item.name}</h4>
+                    </Td>
                     <Td>{item.price}</Td>
-                    <Td>{item.quantity}</Td>
-                    <Td> <button onClick={handleDelete} name={indx}> Delete </button></Td>
+                    <Td>
+                        <Quantity
+                            AddQuantity={addQuantity}
+                            decreaseQuantity={decreaseQuantity}
+                            quantity={qty}
+                        />
+                    </Td>
+                    <Td>{costPrice} </Td>
+                    <Td>
+                        {" "}
+                        <button
+                            onClick={handleDelete}
+                            name={indx}
+                            className="btn btn-danger"
+                        >
+                            {" "}
+                            Delete{" "}
+                        </button>
+                    </Td>
                 </Tr>
             </Tbody>
         </Table>

@@ -3,6 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "./ONE_LOGO.svg.png";
+import cart from "./Cart.png"
 import Search from "../Search/Search";
 import { Link, NavLink} from "react-router-dom";
 
@@ -12,13 +13,9 @@ const Header2 = () => {
     return (
         <Navbar expand="lg" style={{ backgroundColor: "#184D47" }}>
             <Container>
-               {/*  <Navbar.Brand href="/">
-                    <img src={logo} width="70px" height="60px" alt="" />
-                    Stop
-                </Navbar.Brand> */}
                 <NavLink to="/" className={styles.cart}>
                     <img src={logo} width="70px" height="60px" alt="" />
-                    Stop
+                    {/* <p>Stop</p> */}
                 </NavLink>
                 <div style={{ marginLeft: "15vw", marginRight: "20vw" }}>
                     <Search />
@@ -28,11 +25,11 @@ const Header2 = () => {
                 <Navbar.Collapse className="justify-content-end">
                     <Nav className="me-auto">
                         <NavLink to="/cart" className={styles.cart}>
-                            Cart
+                            <img src={cart} width="50px" height="50px" alt="" />
                         </NavLink>
-                        <Nav.Link href="/favourites" className={styles.cart}>
+                        {/* <Nav.Link href="/favourites" className={styles.cart}>
                             favourites
-                        </Nav.Link>
+                        </Nav.Link> */}
                         <NavDropdown title="DashBoard" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/products/new">
                                 Add New Product

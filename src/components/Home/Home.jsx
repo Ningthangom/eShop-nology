@@ -17,11 +17,8 @@ const Home = () => {
     const { cartItems, setCartItems } = useContext(SearchContext);
 
 
-       
 
     const getData = async () => {
-
-        
 
         const data = await getProducts();
         
@@ -38,7 +35,7 @@ const Home = () => {
 
      useEffect(() => {console.log("this is cartItems from useContext", cartItems)}, [cartItems]);
 
- 
+ console.log(products);
 
   return (
       <>
@@ -50,8 +47,8 @@ const Home = () => {
           <div className={styles.HomeContainer}>
               <div className={styles.home}>
                   <div className={styles.home__cardGrid}>
-                      {products.map((product) => (
-                          <Card2 product={product} key={product.id} />
+                      {products.map((product, index) => (
+                          <Card2 product={product} key={index} />
                       ))}
                   </div>
               </div>
