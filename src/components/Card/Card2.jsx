@@ -10,7 +10,7 @@ import {createCart, getCart} from '../firebase/server'
 
 
 
-const Card2 = ({product,}) => {
+const Card2 = ({product}) => {
     const [isAdded, setIsAdded] = useState(false);
     const { cartItems, setCartItems } = useContext(SearchContext);
     
@@ -25,7 +25,7 @@ const Card2 = ({product,}) => {
 
     const itemAddedToCart = () => {
         setCartItems([product, ...cartItems]);
-        addToCart(product);
+        addToCart({costPrice: product.price,...product});
         setIsAdded(true); 
         
     }

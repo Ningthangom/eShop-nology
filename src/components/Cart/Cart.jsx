@@ -25,7 +25,6 @@ const Cart = () => {
     };
 
     const deleteItemFromCart = async (id) => {
-        console.log("ondelete is called");
         await deleteItem(id);
         getData();
     }
@@ -35,34 +34,35 @@ const Cart = () => {
         const {id1, id,...record} = newRecord;
         await updateItem(id1, record);
         await updateProductCount(id, record);
+        getData();
     }
 
     useEffect(() => {
         getData();
-        
     }, []);
 
 console.log(items);
     return (
-        <div className="container">
-            {items
-                ? items.map((item, indx) => {
-                      return (
-                          <ResponsiveTable
-                              item={item}
-                              key={item.id}
-                              indx={indx}
-                              onChange={handleChange}
-                              onDelete = {deleteItemFromCart}
-                          />
-                      );
-                  })
-                : "please be there"}
-           <div> 
-            <div> 
-                Cart total = { }
+        <div style={{marginTop: "10%"}}>
+            <div className="container">
+                {items
+                    ? items.map((item, indx) => {
+                          return (
+                              <ResponsiveTable
+                                  item={item}
+                                  key={item.id}
+                                  indx={indx}
+                                
+                                  onChange={handleChange}
+                                  onDelete={deleteItemFromCart}
+                              />
+                          );
+                      })
+                    : "please be there"}
+                <div>
+                    <div>Cart total = {}</div>
+                </div>
             </div>
-           </div>
         </div>
     );
 };
